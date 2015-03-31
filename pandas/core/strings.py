@@ -1187,6 +1187,8 @@ class StringMethods(object):
     _shared_docs['istitle'] = dict(type='titlecase', method='istitle')
     _shared_docs['isnumeric'] = dict(type='numeric', method='isnumeric')
     _shared_docs['isdecimal'] = dict(type='decimal', method='isdecimal')
+    _shared_docs['isempty'] = dict(type='str', method='isempty')
+
     isalnum = _noarg_wrapper(lambda x: x.isalnum(),
                              docstring=_shared_docs['ismethods'] % _shared_docs['isalnum'])
     isalpha = _noarg_wrapper(lambda x: x.isalpha(),
@@ -1205,3 +1207,5 @@ class StringMethods(object):
                              docstring=_shared_docs['ismethods'] % _shared_docs['isnumeric'])
     isdecimal = _noarg_wrapper(lambda x: compat.u_safe(x).isdecimal(),
                              docstring=_shared_docs['ismethods'] % _shared_docs['isdecimal'])
+    isempty = _noarg_wrapper(lambda x: x.match('^\s*$'),
+                             docstring=_shared_docs['ismethods'] % _shared_docs['isempty'])
